@@ -1,0 +1,7 @@
+# build artifacts
+*.o
+*.elf
+
+# build outputs
+/out/
+/build/
