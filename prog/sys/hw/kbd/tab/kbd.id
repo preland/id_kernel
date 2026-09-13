@@ -24,7 +24,7 @@ kb_tab_init() {
 } return void;
 
 kb_fill() {
-  string kb_low_v = kb_low();
+  string kb_low_v = (import kb_low);
   kb_hex((import kb_lo), kb_low_v, 0);
   kb_fill_hi();
 } return void;
