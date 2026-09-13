@@ -9,11 +9,12 @@ font_bits(int bits, word x, word y, word fg, word bg) {
 } return void;
 
 // The bitwise operators bind tighter than the comparisons in this language
-// (README, "Rules the example implies"), so `bits >> n & 1 == 1` groups the
-// way it reads and needs no parentheses around the mask.
+// (README, "Rules the example implies") and looser in C, so the language
+// requires the mask to be parenthesized rather than leave the reader to know
+// which table applies.
 font_col(int bits, int i, word fg, word bg) {
   word c = bg;
-  if(bits >> (7 - i) & 1 == 1) {
+  if((bits >> (7 - i) & 1) == 1) {
     c = fg;
   }
 } return word c;
