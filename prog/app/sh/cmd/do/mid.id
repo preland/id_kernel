@@ -1,5 +1,5 @@
 // The middle of the chain. Each of these is one link: two names, and the rest
-// of the table. See `exec.id` for why the table is shaped like this.
+// of the table. See `dispatch.id` for why the table is shaped like this.
 
 sh_do2(string name, string t) {
   if(name == "cd") {

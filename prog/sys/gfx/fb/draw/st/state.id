@@ -1,4 +1,4 @@
-// A word[] cannot be written as a literal (see fb.id), so it starts empty.
+// A word[] cannot be written as a literal (see open.id), so it starts empty.
 fb_zero() {
   push((import fb_st), 0);
   push((import fb_st), 0);

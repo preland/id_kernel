@@ -1,4 +1,4 @@
-// The three halves cut off idt.id and more.id for the action limit: the read
+// The three halves cut off init.id and more.id for the action limit: the read
 // idt_fill loops over, the high dword of the offset idt_gate3 writes, and the
 // descriptor idt_load points the register at.
 idt_read(int i) {

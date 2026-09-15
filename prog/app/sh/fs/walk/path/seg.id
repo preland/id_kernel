@@ -1,4 +1,4 @@
-// An empty segment resolves to where it started -- see path.id for why that
+// An empty segment resolves to where it started -- see resolve.id for why that
 // is what makes a leading, trailing, or doubled slash all harmless.
 fs_step_seg(int at, string name) {
   int got = at;
