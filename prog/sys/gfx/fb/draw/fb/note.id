@@ -5,3 +5,21 @@ fb_start_note(word w, word h) {
   word pci_bar0_v = pci_bar0(pci_find_vga_v);
   fb_note(pci_bar0_v, w, h);
 } return void;
+
+// The pixel at the origin of the test framebuffer fb_test_setup builds --
+// zeroed by that setup, so a case can tell "still zero" from "fb_px wrote
+// here" without knowing alloc's address.
+fb_peek0() {
+  word ret_w = peek32(fb_base());
+} return word ret_w;
+given fb_test_setup ():(0)
+given fb_test_mark ():(0x11223344)
+
+// fb_test_setup plus one known write, so fb_peek0 has something other than
+// zero to find.
+fb_test_mark() {
+  fb_test_setup();
+  fb_px(0, 0, 0x11223344);
+} return void;
+():() then fb_peek0:(0x11223344)
+():() then calls fb_px:[1]

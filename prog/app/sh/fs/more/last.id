@@ -5,3 +5,5 @@ fs_last_seg(string t) {
   int len_v = len(t);
   string ret_s = cut(t, fs_last_v, len_v);
 } return string ret_s;
+("a/b/c"):("c")
+("noslash"):("noslash")

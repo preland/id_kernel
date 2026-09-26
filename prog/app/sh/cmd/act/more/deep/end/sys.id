@@ -3,6 +3,8 @@
 sh_uname() {
   con_line("id kernel -- x86_64, no libc, no operating system under it");
 } return void;
+given boot_gfx ():() then prints:("id kernel -- x86_64, no libc, no operating system under it\n")
+given boot_gfx ():() then calls con_line:[1]
 
 // `mem`. The high-water mark of the flat store, which is also the arena every
 // string and list in this shell came out of, and which only ever grows.
@@ -10,6 +12,8 @@ sh_mem() {
   word store_size_v = store_size();
   con_line("store: " + store_size_v + " bytes handed out, none reclaimed");
 } return void;
+given boot_gfx ():() then calls con_line:[1]
+given boot_gfx ():() then calls con_blank:[0]
 
 // `fault`. The boot stub identity-maps the first four gigabytes and nothing
 // above them, so a read at five has no page behind it. It is a command rather
@@ -20,3 +24,5 @@ sh_fault() {
   con_line("fault: reading 0x140000000, which has no page behind it");
   peek64(0x140000000);
 } return void;
+given boot_gfx ():() then traps:("out of range")
+given boot_gfx ():() then traps:("5368709120")

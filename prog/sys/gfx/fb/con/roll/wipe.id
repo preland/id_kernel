@@ -6,6 +6,8 @@ con_wipe(word y) {
     x = x + 1;
   }
 } return void;
+given boot_gfx (5):() then calls fb_px:[0]
+given fb_test_setup (5):() then calls fb_px:[8]
 
 // The whole screen, at boot. A console that starts on whatever the firmware
 // left behind looks broken even when it is not.
@@ -16,3 +18,5 @@ con_blank() {
     y = y + 1;
   }
 } return void;
+given boot_gfx ():() then calls con_wipe:[0]
+given fb_test_setup ():() then calls con_wipe:[20]

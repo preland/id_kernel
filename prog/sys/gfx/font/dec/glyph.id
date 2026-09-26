@@ -6,11 +6,15 @@ font_nib(int ch) {
     n = ch - 87;
   }
 } return int n;
+(57):(9)
+(97):(10)
 
 // One row of a glyph: eight pixels, most significant bit leftmost.
 font_row(int ch, int ln) {
   int ret_i = font_at(ch - 32, ln);
 } return int ret_i;
+given boot_gfx (32, 0):(0)
+given boot_gfx (33, 2):(0x18)
 
 font_at(int g, int ln) {
   int n = 0;
@@ -18,3 +22,8 @@ font_at(int g, int ln) {
     n = (import font_px)[g * 16 + ln];
   }
 } return int n;
+given boot_gfx (1, 2):(0x18)
+given boot_gfx (95, 0):(0)
+given boot_gfx (24, 5):(0xc6)
+given boot_gfx (48, 5):(0x66)
+given boot_gfx (72, 5):(0x6c)

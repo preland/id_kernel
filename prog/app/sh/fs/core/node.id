@@ -11,12 +11,16 @@ fs_new(int up, int dir, string name, string t) {
   fs_new2(up, dir, t);
   int ret_i = len((import fs_name)) - 1;
 } return int ret_i;
+given fs_init (0, 1, "test", ""):(6)
+given fs_init (2, 0, "note.txt", "hi"):(6) then calls fs_new2:[1]
 
 fs_new2(int up, int dir, string t) {
   push((import fs_up), up);
   push((import fs_dir), dir);
   push((import fs_data), t);
 } return void;
+given fs_init (0, 1, "x"):() then fs_up_last:(0)
+given fs_init (2, 0, "y"):() then fs_up_last:(2)
 
 // A write through a `string[]` somebody else owns. `(import xs)[i] = v` is
 // rejected at compile time (docs/SPEC.md 5) and there is no `idstd` in a
@@ -26,3 +30,5 @@ fs_new2(int up, int dir, string t) {
 sset(string[] rows, int i, string s) {
   rows[i] = s;
 } return void;
+(["a", "b", "c"], 1, "X"):(["a", "X", "c"])
+(["p", "q"], 0, "Z"):(["Z", "q"])

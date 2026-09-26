@@ -10,6 +10,8 @@ ls_at(int at) {
     i = i + 1;
   }
 } return void;
+given fs_init given boot_gfx (0):() then prints:("README\nbin/\ndoc/\n")
+given fs_init given boot_gfx (2):() then prints:("hello\n")
 
 ls_one(int i, int at) {
   if((import fs_up)[i] == at) {
@@ -17,6 +19,8 @@ ls_one(int i, int at) {
     con_line(ls_name_v);
   }
 } return void;
+given fs_init given boot_gfx (2, 0):() then prints:("bin/\n")
+given fs_init given boot_gfx (1, 5):() then prints:("")
 
 // A trailing slash marks a directory. There are no columns and no widths to
 // pad to: one name per line is what a console eighty characters wide and a
@@ -27,3 +31,5 @@ ls_name(int i) {
     s = s + "/";
   }
 } return string s;
+given fs_init (1):("README")
+given fs_init (2):("bin/")

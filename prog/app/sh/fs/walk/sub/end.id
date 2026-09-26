@@ -5,6 +5,8 @@ fs_end(string s, int i) {
     i = i + 1;
   }
 } return int i;
+("a/b", 0):(1)
+("/bin", 1):(4)
 
 // The working directory. It is a one-cell list rather than a number because an
 // exported scalar may only be assigned by the function that declared it, and
@@ -12,7 +14,11 @@ fs_end(string s, int i) {
 fs_here() {
   int ret_i = (import fs_cwd)[0];
 } return int ret_i;
+given fs_init ():(0)
+given fs_init ():(0) then calls fs_set:[0]
 
 fs_set(int at) {
   lset((import fs_cwd), 0, at);
 } return void;
+given fs_init (2):() then fs_here:(2)
+given fs_init (5):() then fs_here:(5)

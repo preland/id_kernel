@@ -11,6 +11,8 @@ sh_ls(string t) {
     ls_at(at);
   }
 } return void;
+given fs_init given boot_gfx (""):() then prints:("README\nbin/\ndoc/\n")
+given fs_init given boot_gfx ("nosuch"):() then prints:("ls: no such path: nosuch\n")
 
 // `cd`. Two functions rather than one because the two failures are separate
 // questions -- does the path exist, and is it a directory -- and testing both
@@ -24,6 +26,8 @@ sh_cd(string t) {
     sh_cd2(at, t);
   }
 } return void;
+given fs_init given boot_gfx ("bin"):() then calls sh_cd2:(2, "bin")
+given fs_init given boot_gfx ("nosuch"):() then prints:("cd: no such directory: nosuch\n")
 
 sh_cd2(int at, string t) {
   if((import fs_dir)[at] == 1) {
@@ -32,3 +36,5 @@ sh_cd2(int at, string t) {
     con_line("cd: not a directory: " + t);
   }
 } return void;
+given fs_init given boot_gfx (2, "bin"):() then fs_here:(2)
+given fs_init given boot_gfx (1, "README"):() then prints:("cd: not a directory: README\n")

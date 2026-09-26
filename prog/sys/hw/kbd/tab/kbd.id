@@ -16,15 +16,21 @@ kb_init() {
   export int[] kb_st = [0];
   kb_tab_init();
 } return int 0;
+():(0)
+():(0) then calls kb_tab_init:[1]
 
 kb_tab_init() {
   export int[] kb_lo = [];
   export int[] kb_hi = [];
   kb_fill();
 } return void;
+():() then calls kb_fill:[1]
+():() then prints:("")
 
 kb_fill() {
   string kb_low_v = (import kb_low);
   kb_hex((import kb_lo), kb_low_v, 0);
   kb_fill_hi();
 } return void;
+given kb_tab_init ():() then calls kb_hex:[2] then calls kb_fill_hi:[1]
+given boot_in ():() then calls kb_hex:[2] then calls kb_fill_hi:[1]

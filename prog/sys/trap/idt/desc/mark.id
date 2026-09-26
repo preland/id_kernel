@@ -1,0 +1,8 @@
+// idt_buf_setup plus one full gate written with a known vector, so
+// idt_buf_peek_lo/idt_buf_peek_hi have a real, non-zero value to find.
+idt_gate_mark() {
+  idt_buf_setup();
+  idt_gate((import idt_buf_ad), 0x1122334455667788);
+} return void;
+():() then idt_buf_peek_lo:(0x55668e0000087788)
+():() then calls idt_gate2:[1]

@@ -6,6 +6,8 @@ sh_tail(string s, int at) {
   int len_v = len(s);
   string ret_s = cut(s, sh_skip_v, len_v);
 } return string ret_s;
+("note.txt hello world", 8):("hello world")
+("a.txt hi", 5):("hi")
 
 // The pack-and-read-back half of sh_str, cut out here because sh_str already
 // spent its own budget getting the length and the address named.
@@ -13,3 +15,5 @@ sh_str_tail(int[] xs, word p, int len_v) {
   sh_pack(xs, p);
   string ret_s = str_of_mem(p, len_v);
 } return string ret_s;
+given sh_buf_init ([72, 105], (import sh_buf), 2):("Hi")
+given sh_buf_init ([79, 75], (import sh_buf), 2):("OK")

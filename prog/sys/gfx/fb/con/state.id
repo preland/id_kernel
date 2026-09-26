@@ -14,12 +14,18 @@ con_init() {
   export word[] con_st = [];
   con_zero();
 } return int 0;
+():(0)
+():(0) then calls con_zero:[1]
 
 con_zero() {
   push((import con_st), 0);
   push((import con_st), 0);
 } return void;
+given boot_gfx ():() then prints:("")
+given boot_gfx ():() then eprints:("")
 
 con_at(int i) {
   word ret_w = (import con_st)[i];
 } return word ret_w;
+given boot_gfx (0):(0)
+given boot_gfx given con_nl_row (1):(1)

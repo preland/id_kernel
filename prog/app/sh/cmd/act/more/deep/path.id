@@ -5,6 +5,8 @@ sh_pwd() {
   string fs_pwd_v = fs_pwd(fs_here_v);
   con_line(fs_pwd_v);
 } return void;
+given fs_init given boot_gfx ():() then prints:("/\n")
+given fs_init given boot_gfx ():() then calls con_line:[1]
 
 // `cat`. A directory has an empty contents string, so `cat` of one prints a
 // blank line rather than complaining; the node lists have no way to say "is a
@@ -18,9 +20,13 @@ sh_cat(string t) {
     con_line((import fs_data)[at]);
   }
 } return void;
+given fs_init given boot_gfx ("README"):() then prints:("a shell and an in-memory filesystem, both written in id, on a kernel with no libc under it\n")
+given fs_init given boot_gfx ("nosuch"):() then prints:("cat: no such file: nosuch\n")
 
 // `echo`. The argument text arrives with its leading spaces already gone and
 // its internal ones intact, which is as much quoting as this shell has.
 sh_echo(string t) {
   con_line(t);
 } return void;
+given boot_gfx ("hello"):() then prints:("hello\n")
+given boot_gfx ("world"):() then prints:("world\n")

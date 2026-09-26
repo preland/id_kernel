@@ -14,6 +14,8 @@ fs_make(string t, int dir) {
     fs_new(at, dir, cut_v, "");
   }
 } return void;
+given fs_init ("newdir", 1):() then calls fs_new:(0, 1, "newdir", "")
+given fs_init given boot_gfx ("nosuch/x", 1):() then prints:("no such directory: nosuch/x\n")
 
 // The same, for a file that is being written to before it exists, so that
 // `write` does not need a `touch` in front of it.
@@ -26,6 +28,8 @@ fs_make2(string name, string t) {
     fs_new(at, 0, cut_v, t);
   }
 } return void;
+given fs_init ("note.txt", "hi"):() then calls fs_new:(0, 0, "note.txt", "hi")
+given fs_init given boot_gfx ("nosuch/x", "hi"):() then prints:("write: no such directory: nosuch/x\n")
 
 // Replacing a file's contents, or creating the file. There is no append and no
 // editor: a `write` is the whole of a file, which is the smallest thing that
@@ -38,3 +42,5 @@ fs_put(string name, string t) {
     sset((import fs_data), at, t);
   }
 } return void;
+given fs_init ("README", "new contents"):() then calls sset:[1]
+given fs_init ("newfile.txt", "abc"):() then calls fs_make2:[1]

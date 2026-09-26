@@ -5,3 +5,15 @@ con_nl_row() {
   wset((import con_st), 1, con_at_v + 1);
   con_roll();
 } return void;
+given boot_gfx ():() then calls con_roll:[1]
+given con_roll_test_setup ():() then calls con_roll:[1]
+
+// con_roll's scroll boundary (row >= 30), which nothing but con_nl_row
+// itself reaches with no argument, and con_nl_row can only step the row by
+// one per call.
+con_roll_test_setup() {
+  boot_gfx();
+  wset((import con_st), 1, 30);
+} return void;
+():() then prints:("")
+():() then eprints:("")

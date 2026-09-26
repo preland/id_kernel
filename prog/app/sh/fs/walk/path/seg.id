@@ -6,3 +6,15 @@ fs_step_seg(int at, string name) {
     got = fs_seg(at, name);
   }
 } return int got;
+given fs_init (0, "bin"):(2)
+given fs_init (5, ""):(5)
+
+// A reader for `fs_up`'s last entry, since nothing else exposes it: the
+// list is written only through `fs_new2`, whose own two cases (node.id)
+// need some way to see what it pushed.
+fs_up_last() {
+  int len_v = len((import fs_up));
+  int ret_i = (import fs_up)[len_v - 1];
+} return int ret_i;
+given fs_init ():(3)
+given fs_init ():(3) then calls fs_seg:[0]

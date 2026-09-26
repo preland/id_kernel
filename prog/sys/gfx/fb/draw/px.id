@@ -2,7 +2,22 @@
 fb_w() {
   word ret_w = (import fb_st)[1];
 } return word ret_w;
+given boot_gfx ():(0)
+given fb_test_setup ():(8)
 
 fb_h() {
   word ret_w = (import fb_st)[2];
 } return word ret_w;
+given boot_gfx ():(0)
+given fb_test_setup ():(20)
+
+// A framebuffer the tests can safely draw into: real memory from alloc()
+// rather than the hardware VBE never answers in a hosted case, sized tall
+// enough (20 rows) that con_scroll's 16-row copy has somewhere to land.
+fb_test_setup() {
+  boot_gfx();
+  word base = alloc(4096);
+  fb_note(base, 8, 20);
+} return void;
+():() then fb_w:(8)
+():() then fb_h:(20)

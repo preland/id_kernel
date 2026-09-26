@@ -3,6 +3,8 @@ con_nl() {
   wset((import con_st), 0, 0);
   con_nl_row();
 } return void;
+given boot_gfx ():() then calls con_nl_row:[1]
+given con_wrap_test_setup ():() then calls con_nl_row:[1]
 
 // Past the last row, the picture moves up by one line and the bottom is
 // cleared. The cursor stays on the last row, which is what makes the console
@@ -13,6 +15,8 @@ con_roll() {
     con_scroll();
   }
 } return void;
+given boot_gfx ():() then calls con_scroll:[0]
+given con_roll_test_setup ():() then calls con_scroll:[1]
 
 con_str(string s) {
   int i = 0;
@@ -22,3 +26,5 @@ con_str(string s) {
     i = i + 1;
   }
 } return void;
+given boot_gfx ("A"):() then calls con_ch:(65)
+given boot_gfx (""):() then calls con_ch:[0]

@@ -9,12 +9,16 @@ fs_last(string t) {
     i = i + 1;
   }
 } return int at;
+("a/b/c"):(4)
+("noslash"):(0)
 
 fs_bar(string t, int i, int at) {
   if(charat(t, i) == 47) {
     at = i + 1;
   }
 } return int at;
+("a/b", 1, 0):(2)
+("ab", 1, 0):(0)
 
 // The directory a path's last segment goes in. A path with no slash in it goes
 // in the working directory; otherwise the part up to and including the last
@@ -28,3 +32,5 @@ fs_par(string t) {
     at = fs_path(cut_v);
   }
 } return int at;
+given fs_init ("bin/hello"):(2)
+given fs_init ("nofile"):(0)

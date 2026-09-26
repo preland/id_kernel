@@ -4,3 +4,5 @@ sh_write_body(string t, int at, string cut_v) {
   string cut_v2 = sh_tail(t, at);
   fs_put(cut_v, cut_v2);
 } return void;
+given fs_init given boot_gfx ("note.txt hello world", 8, "note.txt"):() then calls fs_put:("note.txt", "hello world")
+given fs_init given boot_gfx ("a.txt hi", 5, "a.txt"):() then calls fs_put:("a.txt", "hi")

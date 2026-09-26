@@ -34,3 +34,5 @@ sh_key(int[] xs, int ch) {
     sh_put(xs, ch);
   }
 } return void;
+given boot_gfx ([65], 8):([])
+given boot_gfx ([], 65):([65])

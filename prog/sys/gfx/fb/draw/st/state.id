@@ -4,13 +4,19 @@ fb_zero() {
   push((import fb_st), 0);
   push((import fb_st), 0);
 } return void;
+given boot_gfx ():() then prints:("")
+given boot_gfx ():() then eprints:("")
 
 fb_note(word a, word w, word h) {
   wset((import fb_st), 0, a);
   wset((import fb_st), 1, w);
   wset((import fb_st), 2, h);
 } return void;
+given boot_gfx (12345, 8, 20):() then fb_w:(8) then fb_h:(20)
+given boot_gfx (99999, 100, 200):() then fb_w:(100) then fb_h:(200)
 
 fb_base() {
   word ret_w = (import fb_st)[0];
 } return word ret_w;
+given boot_gfx ():(0)
+given fb_test_setup ():(8)

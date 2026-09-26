@@ -19,3 +19,6 @@ vbe_ok2(word val) {
     ok = 1;
   }
 } return int ok;
+(0xb0bf):(0)
+(0xb0c0):(1)
+(0xb0c6):(0)

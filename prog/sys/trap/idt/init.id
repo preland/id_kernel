@@ -35,3 +35,5 @@ idt_gate(word a, word p) {
   poke16(a, p & 0xffff);
   idt_gate2(a, p);
 } return void;
+given idt_buf_setup ((import idt_buf_ad), 0x1122334455667788):() then idt_buf_peek_lo:(0x55668e0000087788) then idt_buf_peek_hi:(0x11223344)
+given idt_buf_setup ((import idt_buf_ad), 0):() then idt_buf_peek_lo:(0x8e0000080000) then idt_buf_peek_hi:(0)

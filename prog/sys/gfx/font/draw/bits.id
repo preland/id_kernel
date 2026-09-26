@@ -7,6 +7,8 @@ font_bits(int bits, word x, word y, word fg, word bg) {
     i = i + 1;
   }
 } return void;
+given boot_gfx (0x80, 10, 20, 0x11223344, 0x55667788):() then calls fb_px:(10, 20, 0x11223344) then calls fb_px:(17, 20, 0x55667788)
+given boot_gfx (0x00, 5, 5, 0xaaaaaaaa, 0xbbbbbbbb):() then calls fb_px:(5, 5, 0xbbbbbbbb) then calls fb_px:(12, 5, 0xbbbbbbbb)
 
 // The bitwise operators bind tighter than the comparisons in this language
 // (README, "Rules the example implies") and looser in C, so the language
@@ -18,3 +20,5 @@ font_col(int bits, int i, word fg, word bg) {
     c = fg;
   }
 } return word c;
+(0x80, 0, 999, 111):(999)
+(0x80, 1, 999, 111):(111)

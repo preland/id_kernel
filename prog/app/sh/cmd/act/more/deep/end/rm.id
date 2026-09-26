@@ -13,10 +13,14 @@ sh_rm(string t) {
     lset((import fs_up), at, 0 - 1);
   }
 } return void;
+given fs_init given boot_gfx ("README"):() then calls con_line:[0]
+given fs_init given boot_gfx ("nosuch"):() then prints:("rm: no such file: nosuch\n")
 
 sh_clear() {
   con_blank();
 } return void;
+given boot_gfx ():() then calls con_blank:[1]
+given boot_gfx ():() then prints:("")
 
 // `halt`. The line is written before the machine stops, because after it there
 // is no machine to write from.

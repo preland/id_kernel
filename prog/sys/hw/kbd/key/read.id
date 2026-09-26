@@ -14,9 +14,13 @@ kb_step(int sc) {
     ch = kb_down(sc);
   }
 } return int ch;
+given boot_in (16):(113)
+given boot_in (0x90):(-1) then calls kb_up:(0x10)
 
 kb_up(int sc) {
   if(kb_shift(sc) == 1) {
     lset((import kb_st), 0, 0);
   }
 } return void;
+given boot_in (0x2a):() then calls kb_shift:(0x2a)
+given boot_in (0x10):() then calls kb_shift:(0x10)

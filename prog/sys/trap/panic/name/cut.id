@@ -4,3 +4,5 @@ trap_name_cut(string trap_names_v, int at) {
   int bar_at_v = bar_at(trap_names_v, at);
   string ret_s = cut(trap_names_v, at, bar_at_v);
 } return string ret_s;
+("ab|cd", 0):("ab")
+("ab|cd", 3):("cd")

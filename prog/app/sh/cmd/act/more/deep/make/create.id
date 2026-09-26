@@ -3,10 +3,14 @@
 sh_mkdir(string t) {
   fs_make(t, 1);
 } return void;
+given fs_init given boot_gfx ("newdir"):() then calls fs_make:("newdir", 1)
+given fs_init given boot_gfx ("sub2"):() then calls fs_make:("sub2", 1)
 
 sh_touch(string t) {
   fs_make(t, 0);
 } return void;
+given fs_init given boot_gfx ("f1"):() then calls fs_make:("f1", 0)
+given fs_init given boot_gfx ("f2"):() then calls fs_make:("f2", 0)
 
 // `write NAME TEXT`, which exists because there is no editor: it is the only
 // way a person at this prompt can put bytes in a file. The name is the first
@@ -16,3 +20,5 @@ sh_write(string t) {
   string cut_v = cut(t, 0, at);
   sh_write_body(t, at, cut_v);
 } return void;
+given fs_init given boot_gfx ("note.txt hello world"):() then calls sh_write_body:("note.txt hello world", 8, "note.txt")
+given fs_init given boot_gfx ("a.txt hi"):() then calls sh_write_body:("a.txt hi", 5, "a.txt")

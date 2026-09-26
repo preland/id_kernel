@@ -15,8 +15,12 @@ font_put(int ch, word x, word y, word fg, word bg) {
     ln = ln + 1;
   }
 } return void;
+given boot_gfx (65, 10, 20, 0x11223344, 0x55667788):() then calls font_line:(65, 0, 10, 20, 0x11223344, 0x55667788) then calls font_line:(65, 15, 10, 20, 0x11223344, 0x55667788)
+given boot_gfx (33, 0, 0, 1, 2):() then calls font_line:(33, 0, 0, 0, 1, 2) then calls font_line:(33, 15, 0, 0, 1, 2)
 
 font_line(int ch, int ln, word x, word y, word fg, word bg) {
   int bits = font_row(ch, ln);
   font_bits(bits, x, y + ln, fg, bg);
 } return void;
+given boot_gfx (35, 5, 10, 20, 0x11223344, 0x55667788):() then calls font_bits:(0xfe, 10, 25, 0x11223344, 0x55667788)
+given boot_gfx (32, 0, 0, 0, 1, 2):() then calls font_bits:(0, 0, 0, 1, 2)

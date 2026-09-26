@@ -11,8 +11,12 @@ idt_gate4(word a, word p) {
   poke32(a + 8, ushr_v2);
   poke32(a + 12, 0);
 } return void;
+given idt_buf_setup ((import idt_buf_ad), 0x1122334455667788):() then idt_buf_peek_hi:(0x11223344)
+given idt_buf_setup ((import idt_buf_ad), 0):() then idt_buf_peek_hi:(0)
 
 idt_load_fill(word p, word a) {
   poke16(p, 0x0fff);
   poke64(p + 2, a);
 } return void;
+given idt_buf_setup ((import idt_buf_ad), 0xaabbccddeeff0011):() then idt_buf_peek_lo:(0xccddeeff00110fff) then idt_buf_peek_hi:(0xaabb)
+given idt_buf_setup ((import idt_buf_ad), 0):() then idt_buf_peek_lo:(0xfff) then idt_buf_peek_hi:(0)

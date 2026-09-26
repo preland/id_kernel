@@ -23,3 +23,5 @@ sh_prompt() {
   int fs_here_v = fs_here();
   string ret_s = fs_pwd(fs_here_v) + " $ ";
 } return string ret_s;
+given fs_init ():("/ $ ")
+given fs_init ():("/ $ ") then calls fs_pwd:[1]

@@ -7,6 +7,8 @@ kb_hex(int[] xs, string s, int i) {
     i = i + 2;
   }
 } return void;
+([], "4142", 0):([65, 66])
+([], "", 0):([])
 
 // A scancode, or -1 when the controller has nothing. Bit 0 of the status port
 // says whether the output buffer has a byte in it; reading the data port when
@@ -25,3 +27,5 @@ kb_shift(int sc) {
     ok = 1;
   }
 } return int ok;
+(0x2a):(1)
+(0x29):(0)

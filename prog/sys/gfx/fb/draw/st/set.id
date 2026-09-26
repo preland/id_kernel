@@ -7,6 +7,8 @@
 wset(word[] cells, int i, word a) {
   cells[i] = a;
 } return void;
+([1000000000000, 2], 0, 5):([5, 2], 0, 5)
+([1, 2], 1, 9999999999):([1, 9999999999], 1, 9999999999)
 
 // One pixel, at 32 bits per pixel: blue, green, red, unused. Out-of-range
 // coordinates are dropped rather than trapped, because a rasteriser clips by
@@ -19,6 +21,8 @@ fb_px(word x, word y, word c) {
     poke32(fb_base_v + (y * fb_w_v + x) * 4, c);
   }
 } return void;
+given fb_test_setup (0, 0, 0x11223344):() then fb_peek0:(0x11223344)
+given fb_test_setup (8, 0, 0x11223344):() then fb_peek0:(0)
 
 // The same write at the other width. `idstd` has `lset`, and a freestanding
 // build has no `idstd` -- so the kernel carries its own, beside the one for
@@ -27,3 +31,5 @@ fb_px(word x, word y, word c) {
 lset(int[] xs, int i, int v) {
   xs[i] = v;
 } return void;
+([7, 8], 0, 5):([5, 8], 0, 5)
+([7, 8], 1, 5):([7, 5], 1, 5)

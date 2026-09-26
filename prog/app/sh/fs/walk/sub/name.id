@@ -12,6 +12,8 @@ fs_pwd(int at) {
   }
   string ret_s = fs_slash(s);
 } return string ret_s;
+given fs_init (4):("/bin/hello")
+given fs_init (0):("/")
 
 // The root's path is the one that does not fall out of the loop: it has no
 // segments, and "" is not a path.
@@ -20,6 +22,8 @@ fs_slash(string s) {
     s = "/";
   }
 } return string s;
+(""):("/")
+("/bin"):("/bin")
 
 // A path argument, where an absent one means the working directory. This is
 // what makes `ls` with nothing after it mean `ls .`.
@@ -29,3 +33,5 @@ fs_to(string t) {
     at = fs_path(t);
   }
 } return int at;
+given fs_init (""):(0)
+given fs_init ("bin"):(2)

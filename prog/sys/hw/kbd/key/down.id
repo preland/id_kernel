@@ -7,6 +7,8 @@ kb_down(int sc) {
     ch = kb_look(sc);
   }
 } return int ch;
+given boot_in (16):(113)
+given boot_in (42):(-1)
 
 // A zero in the table means the key has no character -- a function key, or a
 // code this layout does not use -- and is reported as nothing rather than as
@@ -18,6 +20,8 @@ kb_look(int sc) {
     got = ch;
   }
 } return int got;
+given boot_in (16):(113)
+given boot_in (0):(-1)
 
 kb_at(int sc) {
   int ch = (import kb_lo)[sc];
@@ -25,3 +29,5 @@ kb_at(int sc) {
     ch = (import kb_hi)[sc];
   }
 } return int ch;
+given boot_in (16):(113)
+given kb_shift_test_setup (16):(81)

@@ -16,9 +16,13 @@ show_shift() {
   print("shift: " + (1 << 10) + " " + ((0 - 8) >> 1) + " " + (1 << 64) + " " + ushr_v);
   show_shift2();
 } return void;
+():() then prints:("shift: 1024 -4 0 0\nshift: -1 0 1 0\n")
+():() then eprints:("")
 
 show_shift2() {
   word ult_v = ult(3, 0 - 1);
   word ult_v2 = ult(0 - 1, 3);
   print("shift: " + ((0 - 1) >> 70) + " " + (1 >> 70) + " " + ult_v + " " + ult_v2);
 } return void;
+():() then prints:("shift: -1 0 1 0\n")
+():() then eprints:("")

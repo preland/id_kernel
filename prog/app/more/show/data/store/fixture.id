@@ -1,0 +1,24 @@
+// A poked-and-allocated flat-store buffer, for the functions in demo.id and
+// line2.id that only read: fill_store already covers the write, so this
+// setup calls it once so the read-only functions have something real to
+// see, rather than an uninitialised export.
+show_store_fixture() {
+  export word store_a = alloc(16);
+  fill_store((import store_a));
+} return void;
+():() then store_read64:(0x1122334455667788)
+():() then store_read16:(0xcafe)
+
+store_read64() {
+  word a = (import store_a);
+  word ret_w = peek64(a);
+} return word ret_w;
+given show_store_fixture ():(0x1122334455667788)
+given show_store_fixture ():(0x1122334455667788) then store_read16:(0xcafe)
+
+store_read16() {
+  word a = (import store_a) + 8;
+  word ret_w = peek16(a);
+} return word ret_w;
+given show_store_fixture ():(0xcafe)
+given show_store_fixture ():(0xcafe) then store_read64:(0x1122334455667788)

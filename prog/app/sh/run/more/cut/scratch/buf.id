@@ -1,0 +1,30 @@
+// A small scratch buffer, allocated once and filled with two known bytes, so
+// `sh_pack` and `sh_str_tail` have a real flat-store address to write and
+// read through instead of a literal, which traps (no address is valid until
+// `alloc` has returned it).
+sh_buf_init() {
+  export word sh_buf = alloc(2);
+  poke8(sh_buf, 72);
+  poke8(sh_buf + 1, 105);
+} return void;
+():() then sh_buf_byte:(72)
+():() then sh_buf_ok:(1)
+
+// The first byte back, to show a write through `sh_buf` actually lands where
+// a read through it will find it.
+sh_buf_byte() {
+  int ret_i = peek8((import sh_buf));
+} return int ret_i;
+given sh_buf_init ():(72)
+given sh_buf_init ():(72) then sh_buf_ok:(1)
+
+// Whether the address itself came from `alloc` rather than being the null
+// word every unallocated address traps as.
+sh_buf_ok() {
+  int ret_i = 0;
+  if((import sh_buf) > 0) {
+    ret_i = 1;
+  }
+} return int ret_i;
+given sh_buf_init ():(1)
+given sh_buf_init ():(1) then sh_buf_byte:(72)

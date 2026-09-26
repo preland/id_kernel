@@ -8,11 +8,15 @@ gfx_row(word w, word y) {
     x = x + 1;
   }
 } return void;
+given boot_gfx (3, 7):() then calls fb_px:(0, 7, 0x00cc4422) then calls fb_px:(1, 7, 0x0022cc44) then calls fb_px:(2, 7, 0x004422cc)
+given boot_gfx (0, 0):() then calls fb_px:[0]
 
 gfx_cell(word x, word y, word w) {
   word c = gfx_col(x, w);
   fb_px(x, y, c);
 } return void;
+given boot_gfx (10, 100, 30):() then calls fb_px:(10, 100, 0x0022cc44)
+given boot_gfx (20, 100, 30):() then calls fb_px:(20, 100, 0x004422cc)
 
 gfx_col(word x, word w) {
   word c = 0x00cc4422;
@@ -22,3 +26,5 @@ gfx_col(word x, word w) {
     c = 0x004422cc;
   }
 } return word c;
+(10, 30):(0x0022cc44)
+(20, 30):(0x004422cc)

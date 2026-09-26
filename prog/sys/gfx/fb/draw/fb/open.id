@@ -17,6 +17,8 @@ fb_init() {
   export word[] fb_st = [];
   fb_zero();
 } return int 0;
+():(0)
+():(0) then calls fb_zero:[1]
 
 // Returns the width, or zero when there is no adapter to talk to -- which the
 // caller must check, because every drawing call after this one would otherwise

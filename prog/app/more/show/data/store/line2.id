@@ -6,9 +6,13 @@ store_report1(word a, word peek64_v, word peek32_v) {
   print("store: 64=" + peek64_v + " 32=" + peek32_v);
   store_line2(a);
 } return void;
+given show_store_fixture ((import store_a), 111, 222):() then prints:("store: 64=111 32=222\nstore: 16=51966 8=90\n")
+given show_store_fixture ((import store_a), 0, 0):() then prints:("store: 64=0 32=0\nstore: 16=51966 8=90\n")
 
 store_line2(word a) {
   word peek16_v = peek16(a + 8);
   word peek8_v = peek8(a + 10);
   print("store: 16=" + peek16_v + " 8=" + peek8_v);
 } return void;
+given show_store_fixture ((import store_a)):() then prints:("store: 16=51966 8=90\n")
+given show_store_fixture ((import store_a)):() then eprints:("")

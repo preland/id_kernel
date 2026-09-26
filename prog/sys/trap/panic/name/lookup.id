@@ -3,6 +3,8 @@ trap_name(word vec) {
   int at = trap_skip(trap_names_v, 0, vec);
   string ret_s = trap_name_cut(trap_names_v, at);
 } return string ret_s;
+(0):("divide by zero")
+(14):("page fault")
 
 trap_skip(string s, int at, word vec) {
   int i = 0;
@@ -11,3 +13,5 @@ trap_skip(string s, int at, word vec) {
     i = i + 1;
   }
 } return int at;
+("a|b|c", 0, 0):(0)
+("a|b|c", 0, 2):(4)

@@ -22,14 +22,20 @@ fs_init() {
   export string[] fs_data = [];
   fs_init2();
 } return void;
+():() then fs_here:(0)
+():() then calls fs_seed:[1]
 
 fs_init2() {
   export int[] fs_up = [];
   export int[] fs_dir = [];
   fs_init3();
 } return void;
+given fs_init ():() then calls fs_init3:[1]
+given fs_init ():() then calls fs_seed:[1]
 
 fs_init3() {
   export int[] fs_cwd = [];
   fs_seed();
 } return void;
+given fs_init ():() then calls fs_seed:[1]
+given fs_init ():() then fs_here:(0)

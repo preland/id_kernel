@@ -6,14 +6,20 @@ show_str2_conv(string s) {
   string mem_s = mem_round_trip(s);
   print("str: " + at_int_s + " mem=" + mem_s);
 } return void;
+("hello"):() then prints:("str: at=104 int=-123 mem=hel\n")
+("xyz123"):() then prints:("str: at=120 int=-123 mem=xyz\n")
 
 conv_at_int(string s) {
   int charat_v = charat(s, 0);
   int to_int_v = to_int("-123");
   string ret_s = "at=" + charat_v + " int=" + to_int_v;
 } return string ret_s;
+("A"):("at=65 int=-123")
+("abc"):("at=97 int=-123")
 
 mem_round_trip(string s) {
   word mem_of_str_v = mem_of_str(s);
   string ret_s = str_of_mem(mem_of_str_v, 3);
 } return string ret_s;
+("hello"):("hel")
+("xyz123"):("xyz")

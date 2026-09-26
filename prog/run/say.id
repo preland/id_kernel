@@ -3,3 +3,5 @@ banner() {
   print("id kernel: booted");
   print("hello from a language with no libc");
 } return void;
+():() then prints:("id kernel: booted\nhello from a language with no libc\n")
+():() then eprints:("")

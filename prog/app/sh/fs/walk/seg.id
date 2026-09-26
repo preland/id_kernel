@@ -14,6 +14,8 @@ fs_seg(int at, string name) {
     got = at;
   }
 } return int got;
+given fs_init (2, ".."):(0)
+given fs_init (3, "."):(3)
 
 // The child of `at` called `name`, or -1. Every node is examined, because
 // there is no index from a directory to its children -- the parent is what is
@@ -29,6 +31,8 @@ fs_kid(int at, string name) {
     i = i + 1;
   }
 } return int got;
+given fs_init (0, "bin"):(2)
+given fs_init (0, "xyz"):(-1)
 
 // A removed node has -1 for a parent and so matches nothing, which is the
 // whole of what removal means here.
@@ -37,3 +41,5 @@ fs_hit(int got, int i, int at, string name) {
     got = i;
   }
 } return int got;
+given fs_init (-1, 2, 0, "bin"):(2)
+given fs_init (-1, 1, 0, "bin"):(-1)

@@ -4,6 +4,8 @@ sh_put(int[] xs, int ch) {
   push(xs, ch);
   con_ch(ch);
 } return void;
+given boot_gfx ([], 65):([65])
+given boot_gfx ([65], 66):([65, 66])
 
 // Backspace at the start of a line does nothing, rather than popping an empty
 // list, which traps (docs/SPEC.md 5) and would take the kernel with it.
@@ -12,6 +14,8 @@ sh_back(int[] xs) {
     sh_pop(xs);
   }
 } return void;
+given boot_gfx ([65]):([])
+given boot_gfx ([]):([])
 
 // The buffer and the screen have to lose the character together; either one
 // alone is a line that does not say what it is.
@@ -19,3 +23,5 @@ sh_pop(int[] xs) {
   pop(xs);
   sh_erase();
 } return void;
+given boot_gfx ([65, 66]):([65])
+given boot_gfx ([1, 2, 3]):([1, 2])

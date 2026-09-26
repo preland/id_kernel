@@ -12,6 +12,8 @@ try_fault() {
   print("*** reading an address with no page behind it");
   peek64(0x140000000);
 } return void;
+():() then traps:("out of range")
+():() then traps:("5368709120")
 
 // The end of the run. The fault demonstration is last, because the fault
 // handler stops the machine and anything after it would never happen.

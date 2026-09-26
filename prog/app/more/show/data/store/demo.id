@@ -12,15 +12,21 @@ show_store() {
   fill_store(a);
   store_line(a);
 } return void;
+():() then prints:("store: 64=1234605616436508552 32=287454020\nstore: 16=51966 8=90\n")
+():() then eprints:("")
 
 fill_store(word a) {
   poke64(a, 0x1122334455667788);
   poke16(a + 8, 0xcafe);
   poke8(a + 10, 90);
 } return void;
+given show_store_fixture ((import store_a)):() then store_read64:(0x1122334455667788)
+given show_store_fixture ((import store_a)):() then store_read16:(0xcafe)
 
 store_line(word a) {
   word peek64_v = peek64(a);
   word peek32_v = peek32(a + 4);
   store_report1(a, peek64_v, peek32_v);
 } return void;
+given show_store_fixture ((import store_a)):() then prints:("store: 64=1234605616436508552 32=287454020\nstore: 16=51966 8=90\n")
+given show_store_fixture ((import store_a)):() then eprints:("")

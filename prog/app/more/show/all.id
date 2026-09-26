@@ -7,14 +7,20 @@ show_all() {
   show_div();
   show_rest();
 } return void;
+():() then calls show_arith:[1] then calls show_div:[1] then calls show_rest:[1]
+():() then eprints:("")
 
 show_rest() {
   show_shift();
   show_str();
   show_more();
 } return void;
+():() then calls show_shift:[1] then calls show_str:[1] then calls show_more:[1]
+():() then eprints:("")
 
 show_more() {
   show_list();
   show_store();
 } return void;
+():() then calls show_list:[1] then calls show_store:[1]
+():() then eprints:("")

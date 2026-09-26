@@ -4,14 +4,20 @@ sh_help4() {
   con_line("write PATH TEXT  put TEXT in a file, making it if need be");
   sh_help5();
 } return void;
+given boot_gfx ():() then prints:("touch PATH       make an empty file\nwrite PATH TEXT  put TEXT in a file, making it if need be\nrm PATH          remove a file or a directory\nclear            blank the screen\nuname  mem       what this is, and how much store is used\nhalt   fault     stop the machine, or touch an unmapped page\n")
+given boot_gfx ():() then calls con_line:[6]
 
 sh_help5() {
   con_line("rm PATH          remove a file or a directory");
   con_line("clear            blank the screen");
   sh_help6();
 } return void;
+given boot_gfx ():() then prints:("rm PATH          remove a file or a directory\nclear            blank the screen\nuname  mem       what this is, and how much store is used\nhalt   fault     stop the machine, or touch an unmapped page\n")
+given boot_gfx ():() then calls con_line:[4]
 
 sh_help6() {
   con_line("uname  mem       what this is, and how much store is used");
   con_line("halt   fault     stop the machine, or touch an unmapped page");
 } return void;
+given boot_gfx ():() then prints:("uname  mem       what this is, and how much store is used\nhalt   fault     stop the machine, or touch an unmapped page\n")
+given boot_gfx ():() then calls con_line:[2]

@@ -7,9 +7,13 @@ sh_do8(string name, string t) {
     sh_bad(name);
   }
 } return void;
+given boot_gfx ("foo", ""):() then calls sh_bad:("foo")
+given boot_gfx ("xyz", "abc"):() then calls sh_bad:("xyz")
 
 // The name is repeated back, because the commonest reason a command is not
 // found is that it is not the command that was typed.
 sh_bad(string name) {
   con_line(name + ": not a command -- try help");
 } return void;
+given boot_gfx ("foo"):() then prints:("foo: not a command -- try help\n")
+given boot_gfx ("ls2"):() then prints:("ls2: not a command -- try help\n")

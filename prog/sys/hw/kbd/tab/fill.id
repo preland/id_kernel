@@ -4,3 +4,14 @@ kb_fill_hi() {
   string kb_high_v = (import kb_high);
   kb_hex((import kb_hi), kb_high_v, 0);
 } return void;
+given kb_tab_init ():() then calls kb_hex:[1]
+given boot_gfx ():() then calls kb_hex:[1]
+
+// A shifted keyboard, which nothing else reaches with no argument: only
+// kb_down sets kb_st's shift flag, and it takes the scancode as a parameter.
+kb_shift_test_setup() {
+  boot_in();
+  lset((import kb_st), 0, 1);
+} return void;
+():() then prints:("")
+():() then eprints:("")

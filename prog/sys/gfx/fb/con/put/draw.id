@@ -7,3 +7,15 @@ con_draw_put(int ch, word con_at_v, word con_at_v2) {
   wset((import con_st), 0, con_at_v + 1);
   con_wrap();
 } return void;
+given boot_gfx (65, 0, 0):() then calls font_put:(65, 0, 0, 0x00d0d0d0, 0x00101018) then calls con_wrap:[1]
+given boot_gfx (66, 3, 2):() then calls font_put:(66, 24, 32, 0x00d0d0d0, 0x00101018) then calls con_wrap:[1]
+
+// con_wrap's column-wrap boundary (>=80), which nothing else in a hosted
+// case reaches on its own since only con_draw_put advances the column and
+// it takes an argument, so it cannot be a 'given'.
+con_wrap_test_setup() {
+  boot_gfx();
+  wset((import con_st), 0, 80);
+} return void;
+():() then prints:("")
+():() then eprints:("")

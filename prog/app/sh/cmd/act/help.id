@@ -10,15 +10,21 @@ sh_help() {
   con_line("cd PATH          change directory, .. for the parent");
   sh_help2();
 } return void;
+given boot_gfx ():() then prints:("ls [PATH]        list a directory\ncd PATH          change directory, .. for the parent\npwd              print the working directory\ncat PATH         print a file\necho TEXT        print TEXT\nmkdir PATH       make a directory\ntouch PATH       make an empty file\nwrite PATH TEXT  put TEXT in a file, making it if need be\nrm PATH          remove a file or a directory\nclear            blank the screen\nuname  mem       what this is, and how much store is used\nhalt   fault     stop the machine, or touch an unmapped page\n")
+given boot_gfx ():() then calls con_line:[12]
 
 sh_help2() {
   con_line("pwd              print the working directory");
   con_line("cat PATH         print a file");
   sh_help3();
 } return void;
+given boot_gfx ():() then prints:("pwd              print the working directory\ncat PATH         print a file\necho TEXT        print TEXT\nmkdir PATH       make a directory\ntouch PATH       make an empty file\nwrite PATH TEXT  put TEXT in a file, making it if need be\nrm PATH          remove a file or a directory\nclear            blank the screen\nuname  mem       what this is, and how much store is used\nhalt   fault     stop the machine, or touch an unmapped page\n")
+given boot_gfx ():() then calls con_line:[10]
 
 sh_help3() {
   con_line("echo TEXT        print TEXT");
   con_line("mkdir PATH       make a directory");
   sh_help4();
 } return void;
+given boot_gfx ():() then prints:("echo TEXT        print TEXT\nmkdir PATH       make a directory\ntouch PATH       make an empty file\nwrite PATH TEXT  put TEXT in a file, making it if need be\nrm PATH          remove a file or a directory\nclear            blank the screen\nuname  mem       what this is, and how much store is used\nhalt   fault     stop the machine, or touch an unmapped page\n")
+given boot_gfx ():() then calls con_line:[8]

@@ -5,8 +5,12 @@ boot_gfx() {
   font_init();
   boot_in();
 } return void;
+():() then prints:("")
+():() then eprints:("")
 
 boot_in() {
   con_init();
   kb_init();
 } return void;
+():() then prints:("")
+():() then eprints:("")

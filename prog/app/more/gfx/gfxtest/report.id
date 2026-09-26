@@ -5,8 +5,12 @@ gfx_demo_report(word w) {
   string hexw_v = fb_base_hex();
   print("fb: " + w + "x" + fb_h_v + " at " + hexw_v);
 } return void;
+given gfx_buf_setup (640):() then prints:("fb: 640x480 at 0x0000000000000008\n")
+given gfx_buf_setup (0):() then prints:("fb: 0x480 at 0x0000000000000008\n")
 
 fb_base_hex() {
   word fb_base_v = fb_base();
   string ret_s = hexw(fb_base_v);
 } return string ret_s;
+given gfx_buf_setup ():("0x0000000000000008") then fb_w:(640)
+given gfx_buf_setup ():("0x0000000000000008") then fb_h:(480)

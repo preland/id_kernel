@@ -6,6 +6,8 @@ sh_pack(int[] xs, word p) {
     i = i + 1;
   }
 } return void;
+given sh_buf_init ([72, 105], (import sh_buf)):() then sh_buf_byte:(72)
+given sh_buf_init ([79, 75], (import sh_buf)):() then sh_buf_byte:(79)
 
 // Where the word starting at `at` ends: the next space, or the end of the
 // string. `charat` returns -1 past the end rather than trapping, which is what
@@ -15,6 +17,8 @@ sp_at(string s, int at) {
     at = at + 1;
   }
 } return int at;
+("hello world", 0):(5)
+("noSpace", 0):(7)
 
 // Past any run of spaces, so that `echo   hi` says `hi` and not `  hi`.
 sh_skip(string s, int at) {
@@ -22,3 +26,5 @@ sh_skip(string s, int at) {
     at = at + 1;
   }
 } return int at;
+("  hi", 0):(2)
+("hi", 0):(0)

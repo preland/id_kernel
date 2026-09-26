@@ -1,0 +1,22 @@
+// A real descriptor buffer for idt_gate and idt_load_fill to write into, and
+// a pair of readers that witness the bytes actually written rather than just
+// that writing them didn't trap. tail.id moved in beside this file because
+// trap/idt's three existing files were already at the function cap with
+// nowhere to add a fixture.
+idt_buf_setup() {
+  export word idt_buf_ad = alloc(16);
+} return void;
+():() then idt_buf_peek_lo:(0)
+():() then idt_buf_peek_hi:(0)
+
+idt_buf_peek_lo() {
+  word ret_w = peek64((import idt_buf_ad));
+} return word ret_w;
+given idt_buf_setup ():(0)
+given idt_gate_mark ():(0x55668e0000087788)
+
+idt_buf_peek_hi() {
+  word ret_w = peek64((import idt_buf_ad) + 8);
+} return word ret_w;
+given idt_buf_setup ():(0)
+given idt_gate_mark ():(0x11223344)

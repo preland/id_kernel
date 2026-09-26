@@ -10,6 +10,8 @@ hexw(word a) {
     i = i - 1;
   }
 } return string s;
+(0):("0x0000000000000000")
+(0xdeadbeef):("0x00000000deadbeef")
 
 // The nibble arrives as a `word` because that is what a shift of an address
 // produces, and `chr` takes an `int` -- so it narrows here rather than at each
@@ -19,9 +21,13 @@ nib(word a) {
   string s = chr(48 + n);
   string ret_s = nib2(n, s);
 } return string ret_s;
+(0):("0")
+(10):("a")
 
 nib2(int n, string s) {
   if(n > 9) {
     s = chr(87 + n);
   }
 } return string s;
+(9, "9"):("9")
+(10, "z"):("a")

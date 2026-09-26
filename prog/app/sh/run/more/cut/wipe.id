@@ -12,6 +12,8 @@ sh_erase() {
     sh_wipe(x);
   }
 } return void;
+given boot_gfx ():() then calls sh_wipe:[0]
+given boot_gfx ():() then prints:("")
 
 // Back one, draw a space, back one again: drawing the space is what advances
 // the column, so the second write is not a repetition of the first.
@@ -20,6 +22,8 @@ sh_wipe(word x) {
   con_ch(32);
   wset((import con_st), 0, x - 1);
 } return void;
+given boot_gfx (1):() then calls con_ch:(32)
+given boot_gfx (5):() then calls con_ch:(32)
 
 // The typed characters as a string, in one copy rather than n of them: the
 // bytes are written into the flat store and `str_of_mem` takes the run.
@@ -32,3 +36,5 @@ sh_str(int[] xs) {
   word p = alloc(len_v + 1);
   string ret_s = sh_str_tail(xs, p, len_v);
 } return string ret_s;
+([72, 105]):("Hi")
+([79, 75]):("OK")

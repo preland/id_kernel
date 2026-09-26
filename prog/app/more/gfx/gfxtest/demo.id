@@ -17,6 +17,8 @@ gfx_paint(word w) {
     gfx_check(w);
   }
 } return void;
+given boot_gfx (0):() then calls gfx_bands:[0] then calls gfx_diag:[0] then calls gfx_check:[0]
+given gfx_buf_setup (5):() then calls gfx_bands:(5) then calls gfx_diag:(5) then calls gfx_check:(5)
 
 gfx_bands(word w) {
   word y = 0;
@@ -25,3 +27,5 @@ gfx_bands(word w) {
     y = y + 1;
   }
 } return void;
+given boot_gfx (5):() then calls gfx_row:[0]
+given gfx_buf_setup (5):() then calls gfx_row:[480]
